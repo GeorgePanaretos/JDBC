@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ConnectMySQL.iml" filepath="$PROJECT_DIR$/ConnectMySQL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/01.ConnectMySQL.iml" filepath="$PROJECT_DIR$/src/01.ConnectMySQL.iml" />
     </modules>
   </component>
 </project>
