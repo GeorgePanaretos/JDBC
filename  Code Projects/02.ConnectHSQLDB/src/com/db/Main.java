@@ -8,6 +8,7 @@ public class Main {
 
 	private static final String USERNAME = "dbuser";
 	private static final String PASSWORD = "dbpassword";
+	//connection to hyper sql thought data file of the script files
 	private static final String CONN_STRING =
 			"jdbc:hsqldb:data/explorecalifornia";
 	
