@@ -8,6 +8,7 @@ public class Main {
 
 	private static final String USERNAME = "dbuser";
 	private static final String PASSWORD = "dbpassword";
+	//Connection string to mysql database
 	private static final String CONN_STRING =
 			"jdbc:mysql://localhost/explorecalifornia";
 	
