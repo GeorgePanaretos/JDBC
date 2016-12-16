@@ -8,10 +8,6 @@ import java.sql.Statement;
 
 public class Main {
 
-	private static final String USERNAME = "dbuser";
-	private static final String PASSWORD = "dbpassword";
-	private static final String CONN_STRING =
-			"jdbc:hsqldb:data/explorecalifornia";
 	
 	public static void main(String[] args) throws SQLException {
 		
@@ -20,7 +16,9 @@ public class Main {
 		ResultSet rs = null;
 		
 		try {
-			conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+			//conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+//			conn=DBUtil.getConnection(DBType.HSQLDB);
+			conn=DBUtil.getConnection(DBType.MYSQL);
 			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			rs = stmt.executeQuery("SELECT * FROM states");
 			
