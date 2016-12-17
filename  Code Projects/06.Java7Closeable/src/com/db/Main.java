@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class Main {
 
 	public static void main(String[] args) throws SQLException {
-		
+
 		try (
 
 				Connection conn = DBUtil.getConnection(DBType.HSQLDB);
@@ -17,12 +17,12 @@ public class Main {
 				){
 			rs.last();
 			System.out.println("Number of rows: " + rs.getRow());
-			
+
 		} catch (SQLException e) {
 			DBUtil.processException(e);
 		} 
-		}
-		
 	}
+
+}
 
 
