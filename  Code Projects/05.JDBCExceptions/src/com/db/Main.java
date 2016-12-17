@@ -14,15 +14,15 @@ public class Main {
 		ResultSet rs = null;
 		
 		try {
-			conn = DBUtil.getConnection(DBType.HSQLDB);
+			conn = DBUtil.getConnection(DBType.MYSQL);
 			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-			rs = stmt.executeQuery("SELECT * FROM states");
+			rs = stmt.executeQuery("SELECT stateId, stateName FROM states");
 			
 			rs.last();
 			System.out.println("Number of rows: " + rs.getRow());
 			
 		} catch (SQLException e) {
-			System.err.println(e);
+			DBUtil.processException(e);
 		} finally {
 			if (rs != null) {
 				rs.close();
