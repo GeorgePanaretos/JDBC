@@ -1,4 +1,4 @@
-package com.lynda.javatraining.db.tables;
+package com.db.tables;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
