@@ -1,16 +1,17 @@
-package com.lynda.javatraining.db;
+package com.db;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 
-import com.lynda.javatraining.db.tables.Tours;
-import com.lynda.javatraining.util.InputHelper;
+import com.db.tables.Tours;
+import com.util.InputHelper;
 
 public class Main {
-
-	private static final String SQL = "{call GetToursByPrice(?)}";
+	// 2 parameter stored proc
+	private static final String SQL = "{call GetToursWithCountByPrice(?, ?)}";
 
 	public static void main(String[] args) throws Exception {
 
@@ -31,8 +32,12 @@ public class Main {
 						ResultSet.CONCUR_READ_ONLY);
 				) {
 			stmt.setDouble(1, maxPrice);
+			//second parameter
+			stmt.registerOutParameter("total", Types.INTEGER);
 			rs = stmt.executeQuery();
-			Tours.displayData(rs);
+			//call the proc
+			int nRows=stmt.getInt("total");
+			Tours.displayData(rs, nRows);
 
 		} catch (SQLException e) {
 			System.err.println(e);

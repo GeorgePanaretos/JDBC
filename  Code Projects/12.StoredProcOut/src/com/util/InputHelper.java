@@ -1,4 +1,4 @@
-package com.lynda.javatraining.util;
+package com.util;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
