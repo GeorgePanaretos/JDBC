@@ -1,11 +1,11 @@
-package com.lynda.javatraining.db;
+package com.db;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.lynda.javatraining.db.tables.Tours;
+import com.db.tables.Tours;
 
 public class Main {
 
