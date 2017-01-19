@@ -1,8 +1,8 @@
-package com.lynda.javatraining.db;
+package com.db;
 
 import java.sql.SQLException;
 
-import com.lynda.javatraining.db.tables.AdminManager;
+import com.db.tables.AdminManager;
 
 public class Main {
 

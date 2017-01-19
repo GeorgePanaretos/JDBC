@@ -1,17 +1,17 @@
-package com.lynda.javatraining.db.tables;
+package com.db.tables;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.lynda.javatraining.db.DBType;
-import com.lynda.javatraining.db.DBUtil;
+import com.db.DBType;
+import com.db.DBUtil;
 
-public class StatesManager {
+public class AdminManager {
 
 	public static void displayAllRows() throws SQLException {
-
+		
 		String sql = "SELECT adminId, userName, password FROM admin";
 		try (
 				Connection conn = DBUtil.getConnection(DBType.MYSQL);
@@ -19,12 +19,13 @@ public class StatesManager {
 				ResultSet rs = stmt.executeQuery(sql);
 				){
 
-			while(rs.next()) {
-				String stateFullName =
-						rs.getString("stateId") + ": " + rs.getString("stateName");
-				System.out.println(stateFullName);
+			System.out.println("Admin Table:");
+			while (rs.next()) {
+				StringBuffer bf = new StringBuffer();
+				bf.append(rs.getInt("adminId") + ": ");
+				bf.append(rs.getString("userName"));
+				System.out.println(bf.toString());
 			}
-
 		}
 	}
 }
