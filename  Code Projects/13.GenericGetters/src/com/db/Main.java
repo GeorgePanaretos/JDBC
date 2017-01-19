@@ -12,7 +12,7 @@ public class Main {
 	public static void main(String[] args) throws SQLException {
 
 		try (
-				Connection conn = DBUtil.getConnection(DBType.MYSQL);
+				Connection conn = DBUtil.getConnection(DBType.HSQLDB);
 				Statement stmt = conn.createStatement();
 				ResultSet rs = stmt.executeQuery("SELECT * FROM tours");
 				) {
@@ -21,7 +21,9 @@ public class Main {
 
 		} catch (SQLException e) {
 			DBUtil.processException(e);
-		} 
+		} catch (Exception e){
+			System.err.println(e);
+		}
 
 	}
 
