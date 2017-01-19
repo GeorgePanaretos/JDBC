@@ -1,4 +1,4 @@
-package com.lynda.javatraining.db.tables;
+package com.db.tables;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.lynda.javatraining.db.DBType;
-import com.lynda.javatraining.db.DBUtil;
-import com.lynda.javatraining.db.beans.Admin;
+import com.db.DBType;
+import com.db.DBUtil;
+import com.db.beans.Admin;
 
 public class AdminManager {
 
@@ -44,7 +44,17 @@ public class AdminManager {
 			stmt.setInt(1, adminId);
 			rs = stmt.executeQuery();
 			
-			return null;
+			if(rs.next()){
+				Admin bean = new Admin();
+				bean.setAdminId(adminId);
+				bean.setUserName(rs.getString("userName"));
+				bean.setPassword(rs.getString("password"));
+				return bean;
+			}
+			else{
+				return null;
+			}
+			
 			
 		} catch (SQLException e) {
 			System.err.println(e);

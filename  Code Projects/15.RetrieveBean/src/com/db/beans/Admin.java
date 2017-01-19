@@ -1,4 +1,4 @@
-package com.lynda.javatraining.db.beans;
+package com.db.beans;
 
 public class Admin {
 	
