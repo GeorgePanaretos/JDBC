@@ -1,4 +1,4 @@
-package com.lynda.javatraining.db.tables;
+package com.db.tables;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.lynda.javatraining.db.DBType;
-import com.lynda.javatraining.db.DBUtil;
-import com.lynda.javatraining.db.beans.Admin;
+import com.db.DBType;
+import com.db.DBUtil;
+import com.db.beans.Admin;
 
 public class AdminManager {
 
@@ -108,7 +108,17 @@ public class AdminManager {
 				Connection conn = DBUtil.getConnection(DBType.MYSQL);
 				PreparedStatement stmt = conn.prepareStatement(sql);
 				){
-			return true;
+			
+			stmt.setString(1, bean.getUserName());
+			stmt.setString(2, bean.getPassword());
+			stmt.setInt(3, bean.getAdminId());
+			
+			int affected =stmt.executeUpdate();
+			if(affected==1){
+				return true;
+			}else{
+				return false;	
+				}
 		}
 		catch(SQLException e) {
 			System.err.println(e);
