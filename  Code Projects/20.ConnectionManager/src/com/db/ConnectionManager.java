@@ -1,8 +1,10 @@
-package com.lynda.javatraining.db;
+package com.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+/*
+ * Control connections & managing it.
+ */
 public class ConnectionManager
 {
 	private static ConnectionManager instance = null;

@@ -1,4 +1,4 @@
-package com.lynda.javatraining.db.tables;
+package com.db.tables;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,17 +6,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.lynda.javatraining.db.DBType;
-import com.lynda.javatraining.db.DBUtil;
-import com.lynda.javatraining.db.beans.Admin;
+import com.db.ConnectionManager;
+import com.db.DBType;
+import com.db.DBUtil;
+import com.db.beans.Admin;
 
 public class AdminManager {
 
+	private static Connection conn =ConnectionManager.getInstance().getConnection();
+	
 	public static void displayAllRows() throws SQLException {
 
 		String sql = "SELECT adminId, userName, password FROM admin";
 		try (
-				Connection conn = DBUtil.getConnection(DBType.MYSQL);
+//				Connection conn = DBUtil.getConnection(DBType.MYSQL);
 				Statement stmt = conn.createStatement();
 				ResultSet rs = stmt.executeQuery(sql);
 				){
@@ -38,7 +41,7 @@ public class AdminManager {
 		ResultSet rs = null;
 
 		try (
-				Connection conn = DBUtil.getConnection(DBType.MYSQL);
+//				Connection conn = DBUtil.getConnection(DBType.MYSQL);
 				PreparedStatement stmt = conn.prepareStatement(sql);
 				){
 			stmt.setInt(1, adminId);
@@ -71,7 +74,7 @@ public class AdminManager {
 				"VALUES (?, ?)";
 		ResultSet keys = null;
 		try (
-				Connection conn = DBUtil.getConnection(DBType.MYSQL);
+//				Connection conn = DBUtil.getConnection(DBType.MYSQL);
 				PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 				) {
 			
@@ -105,7 +108,7 @@ public class AdminManager {
 				"userName = ?, password = ? " +
 				"WHERE adminId = ?";
 		try (
-				Connection conn = DBUtil.getConnection(DBType.MYSQL);
+//				Connection conn = DBUtil.getConnection(DBType.MYSQL);
 				PreparedStatement stmt = conn.prepareStatement(sql);
 				){
 			

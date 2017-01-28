@@ -1,14 +1,20 @@
-package com.lynda.javatraining.db;
+package com.db;
 
-import com.lynda.javatraining.db.beans.Admin;
-import com.lynda.javatraining.db.tables.AdminManager;
-import com.lynda.javatraining.util.InputHelper;
+import com.db.beans.Admin;
+import com.db.tables.AdminManager;
+import com.util.InputHelper;
 
 public class Main {
 
+	/*
+	 * Connection Manager handles better the connection with database.
+	 * Saving memory time and resources that is always the goal
+	 */
 	public static void main(String[] args) throws Exception {
 
 		System.out.println("Starting application");
+		
+		ConnectionManager.getInstance().setDBType(DBType.MYSQL);
 		
 		AdminManager.displayAllRows();
 
@@ -29,6 +35,8 @@ public class Main {
 		{
 			System.err.println("whoops!");
 		}
+		
+		ConnectionManager.getInstance().close();
 		
 	}
 }
