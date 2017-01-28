@@ -1,4 +1,4 @@
-package com.lynda.javatraining.db.tables;
+package com.db.tables;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.lynda.javatraining.db.ConnectionManager;
-import com.lynda.javatraining.db.beans.Admin;
+import com.db.ConnectionManager;
+import com.db.beans.Admin;
 
 public class AdminManager {
 
