@@ -1,4 +1,4 @@
-package com.lynda.javatraining.db.tables;
+package com.db.tables;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.NumberFormat;
 
-import com.lynda.javatraining.db.DBType;
-import com.lynda.javatraining.db.DBUtil;
+import com.db.DBType;
+import com.db.DBUtil;
 
 public class ToursManager {
 

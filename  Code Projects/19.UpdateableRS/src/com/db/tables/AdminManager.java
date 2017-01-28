@@ -1,4 +1,4 @@
-package com.lynda.javatraining.db.tables;
+package com.db.tables;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.lynda.javatraining.db.DBType;
-import com.lynda.javatraining.db.DBUtil;
-import com.lynda.javatraining.db.beans.Admin;
+import com.db.DBType;
+import com.db.DBUtil;
+import com.db.beans.Admin;
 
 public class AdminManager {
 
@@ -97,29 +97,33 @@ public class AdminManager {
 		}
 		return true;
 	}
-
+/*
+ * Updateable Result Set is not supported for all database managment system perfomance issue with large result set 
+ *   
+ */
 	public static boolean update(Admin bean) throws Exception {
 
 		String sql =
-				"UPDATE admin SET " +
-				"userName = ?, password = ? " +
-				"WHERE adminId = ?";
+				"SELECT + FROM admin WHERE adminId= ?";
+		ResultSet rs = null;
 		try (
 				Connection conn = DBUtil.getConnection(DBType.MYSQL);
-				PreparedStatement stmt = conn.prepareStatement(sql);
+				PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 				){
 			
-			stmt.setString(1, bean.getUserName());
-			stmt.setString(2, bean.getPassword());
-			stmt.setInt(3, bean.getAdminId());
+//			stmt.setString(1, bean.getUserName());
+//			stmt.setString(2, bean.getPassword());
+			stmt.setInt(1, bean.getAdminId());
 			
-			int affected = stmt.executeUpdate();
-			if (affected == 1) {
+			rs= stmt.executeQuery();
+			if (rs.next()){
+				rs.updateString("userName", bean.getUserName());
+				rs.updateString("password", bean.getPassword());
+				rs.updateRow();
 				return true;
-			} else {
+			}else{
 				return false;
 			}
-			
 		}
 		catch(SQLException e) {
 			System.err.println(e);

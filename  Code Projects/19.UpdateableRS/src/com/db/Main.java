@@ -1,8 +1,8 @@
-package com.lynda.javatraining.db;
+package com.db;
 
-import com.lynda.javatraining.db.beans.Admin;
-import com.lynda.javatraining.db.tables.AdminManager;
-import com.lynda.javatraining.util.InputHelper;
+import com.db.beans.Admin;
+import com.db.tables.AdminManager;
+import com.util.InputHelper;
 
 public class Main {
 
