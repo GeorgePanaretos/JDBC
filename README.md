@@ -1,5 +1,3 @@
-Certainly! Here's a detailed Markdown documentation template for the "JDBC" repository, providing information for each inner project within the folder:
-
 # JDBC
 
 📚 JDBC is a repository containing multiple Java projects that demonstrate the usage of Java Database Connectivity (JDBC) for connecting to and interacting with databases.
@@ -145,8 +143,6 @@ The repository is organized into the following projects:
 🔗 [Project 11 Repository](https://github.com/GeorgePanaretos/JDBC/tree/main/Project%2011%20-%20JDBC%20with%20JPA)
 
 ---
-Certainly! Here are the remaining projects in the "JDBC" repository:
-
 ## Project 12: JDBC with Spring Boot
 
 📝 This project showcases the integration of JDBC with the Spring Boot framework, which provides a streamlined approach to building Java applications. The project covers:
@@ -204,8 +200,6 @@ Certainly! Here are the remaining projects in the "JDBC" repository:
 🔗 [Project 16 Repository](https://github.com/GeorgePanaretos/JDBC/tree/main/Project%2016%20-%20JDBC%20with%20Apache%20Spark)
 
 ---
-Certainly! Here are the remaining projects in the "JDBC" repository:
-
 ## Project 17: JDBC with Spring Batch
 
 📝 This project demonstrates the integration of JDBC with Spring Batch, a framework for batch processing in Java applications. The project covers:
